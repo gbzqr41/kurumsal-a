@@ -102,11 +102,18 @@ const Header: React.FC = () => {
             </button>
             
             <button 
-              className="lg:hidden text-black p-2"
+              className="lg:hidden text-black p-2 flex items-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menüyü Aç/Kapat"
             >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMenuOpen ? (
+                <X size={28} />
+              ) : (
+                <div className="flex flex-col gap-[5px] items-end px-1">
+                  <div className="w-[30px] h-[2px] bg-black"></div>
+                  <div className="w-[20px] h-[2px] bg-black"></div>
+                </div>
+              )}
             </button>
           </div>
         </div>
