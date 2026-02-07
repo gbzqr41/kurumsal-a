@@ -41,7 +41,7 @@ const HeroSlider: React.FC = () => {
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1));
 
   return (
-    <section className="relative w-full h-[calc(100vh-100px)] overflow-hidden bg-black">
+    <section className="relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-100px)] overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -56,7 +56,7 @@ const HeroSlider: React.FC = () => {
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] scale-105"
             style={{ backgroundImage: `url(${SLIDES[current].image})` }}
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
 
           {/* Content */}
           <div className="relative h-full custom-container px-6 flex flex-col justify-center items-start text-white">
@@ -64,14 +64,15 @@ const HeroSlider: React.FC = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
+              className="max-w-4xl"
             >
-              <h1 className="text-5xl md:text-8xl font-[700] leading-tight mb-6 max-w-4xl tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-8xl font-[700] leading-[1.1] mb-6 tracking-tight">
                 {SLIDES[current].title}
               </h1>
-              <p className="text-lg md:text-2xl font-[500] text-white/80 mb-10 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl font-[500] text-white/80 mb-8 md:mb-10 max-w-2xl leading-relaxed">
                 {SLIDES[current].subtitle}
               </p>
-              <button className="bg-white text-black px-10 py-5 text-sm font-[600] uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300">
+              <button className="bg-white text-black px-8 md:px-10 py-4 md:py-5 text-xs md:text-sm font-[600] uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300">
                 {SLIDES[current].buttonText}
               </button>
             </motion.div>
@@ -79,30 +80,30 @@ const HeroSlider: React.FC = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Arrows */}
-      <div className="absolute bottom-10 right-10 flex space-x-4 z-20">
+      {/* Navigation Arrows - Hidden on very small screens or smaller */}
+      <div className="absolute bottom-6 md:bottom-10 right-6 md:right-10 flex space-x-3 md:space-x-4 z-20">
         <button 
           onClick={prevSlide}
-          className="w-14 h-14 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all rounded-full backdrop-blur-sm"
+          className="w-10 h-10 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all rounded-full backdrop-blur-sm"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} />
         </button>
         <button 
           onClick={nextSlide}
-          className="w-14 h-14 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all rounded-full backdrop-blur-sm"
+          className="w-10 h-10 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all rounded-full backdrop-blur-sm"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} />
         </button>
       </div>
 
       {/* Indicators */}
-      <div className="absolute left-10 bottom-10 flex space-x-3 z-20">
+      <div className="absolute left-6 md:left-10 bottom-6 md:bottom-10 flex space-x-2 md:space-x-3 z-20">
         {SLIDES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
             className={`h-1 transition-all duration-500 rounded-full ${
-              current === idx ? 'w-12 bg-white' : 'w-6 bg-white/30 hover:bg-white/50'
+              current === idx ? 'w-8 md:w-12 bg-white' : 'w-4 md:w-6 bg-white/30 hover:bg-white/50'
             }`}
           />
         ))}

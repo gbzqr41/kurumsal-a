@@ -49,7 +49,7 @@ const PRICING_PLANS = [
 
 const Pricing: React.FC = () => {
   return (
-    <section className="py-24 bg-[#f8f9fa]">
+    <section className="py-20 md:py-24 bg-[#f8f9fa]">
       <div className="custom-container px-6">
         {/* Section Heading */}
         <div className="text-center mb-16">
@@ -57,7 +57,7 @@ const Pricing: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-[600] uppercase tracking-[0.3em] text-gray-400 mb-4 block"
+            className="text-[10px] md:text-xs font-[600] uppercase tracking-[0.3em] text-gray-400 mb-4 block"
           >
             Fiyatlandırma
           </motion.span>
@@ -66,7 +66,7 @@ const Pricing: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-[700] text-black tracking-tight"
+            className="text-3xl md:text-5xl font-[700] text-black tracking-tight"
           >
             Şeffaf ve Esnek <br /> Çözüm Planları
           </motion.h2>
@@ -81,28 +81,28 @@ const Pricing: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative p-10 border transition-all duration-500 ${
+              className={`relative p-8 md:p-10 border transition-all duration-500 ${
                 plan.isFeatured 
-                ? 'bg-black text-white border-black shadow-2xl scale-105 z-10' 
+                ? 'bg-black text-white border-black shadow-2xl md:scale-105 z-10' 
                 : 'bg-white text-black border-gray-100 hover:border-gray-300'
               }`}
             >
               {plan.isFeatured && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black text-[10px] font-[700] px-4 py-1 uppercase tracking-widest rounded-full">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black text-[10px] font-[700] px-4 py-1 uppercase tracking-widest rounded-full border border-black/10">
                   En Çok Tercih Edilen
                 </div>
               )}
 
               <div className="mb-8">
-                <h3 className="text-xs font-[700] uppercase tracking-[0.2em] mb-4 opacity-60">
+                <h3 className="text-[10px] md:text-xs font-[700] uppercase tracking-[0.2em] mb-4 opacity-60">
                   {plan.name} Planı
                 </h3>
                 <div className="flex items-baseline">
-                  {plan.price !== "Özel" && <span className="text-2xl font-[600] mr-1">₺</span>}
-                  <span className="text-5xl font-[700] tracking-tighter">
+                  {plan.price !== "Özel" && <span className="text-xl md:text-2xl font-[600] mr-1">₺</span>}
+                  <span className="text-4xl md:text-5xl font-[700] tracking-tighter">
                     {plan.price}
                   </span>
-                  {plan.price !== "Özel" && <span className="text-sm opacity-60 ml-2">/başlayan</span>}
+                  {plan.price !== "Özel" && <span className="text-xs md:text-sm opacity-60 ml-2">/başlayan</span>}
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ const Pricing: React.FC = () => {
                 ))}
               </div>
 
-              <button className={`w-full py-5 text-xs font-[700] uppercase tracking-widest transition-all duration-300 ${
+              <button className={`w-full py-4 md:py-5 text-xs font-[700] uppercase tracking-widest transition-all duration-300 ${
                 plan.isFeatured 
                 ? 'bg-white text-black hover:bg-gray-200' 
                 : 'bg-black text-white hover:bg-gray-800'
@@ -135,7 +135,7 @@ const Pricing: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-12 text-sm text-gray-400 font-[500]"
+          className="text-center mt-12 text-xs md:text-sm text-gray-400 font-[500]"
         >
           Tüm fiyatlara KDV dahildir. Özel projeler için lütfen bizimle iletişime geçin.
         </motion.p>
