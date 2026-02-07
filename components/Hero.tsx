@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           <button className="group flex items-center space-x-4 text-[11px] uppercase tracking-[0.3em] font-bold text-white">
             <span>Showreel</span>
             <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black group-hover:border-white">
-              <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-current border-b-[6px] border-b-transparent ml-1" />
+              <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white group-hover:border-l-black border-b-[6px] border-b-transparent ml-1 transition-colors" />
             </div>
           </button>
         </motion.div>
