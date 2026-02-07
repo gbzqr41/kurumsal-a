@@ -41,7 +41,7 @@ const HeroSlider: React.FC = () => {
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1));
 
   return (
-    <section className="relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-100px)] overflow-hidden bg-black">
+    <section className="relative w-full h-[70vh] overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -80,7 +80,7 @@ const HeroSlider: React.FC = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Arrows - Hidden on very small screens or smaller */}
+      {/* Navigation Arrows */}
       <div className="absolute bottom-6 md:bottom-10 right-6 md:right-10 flex space-x-3 md:space-x-4 z-20">
         <button 
           onClick={prevSlide}
@@ -96,17 +96,21 @@ const HeroSlider: React.FC = () => {
         </button>
       </div>
 
-      {/* Indicators */}
-      <div className="absolute left-6 md:left-10 bottom-6 md:bottom-10 flex space-x-2 md:space-x-3 z-20">
-        {SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`h-1 transition-all duration-500 rounded-full ${
-              current === idx ? 'w-8 md:w-12 bg-white' : 'w-4 md:w-6 bg-white/30 hover:bg-white/50'
-            }`}
-          />
-        ))}
+      {/* Indicators (Bars) - Aligned within container on the left */}
+      <div className="absolute bottom-6 md:bottom-10 left-0 w-full z-20 pointer-events-none">
+        <div className="custom-container px-6">
+          <div className="flex space-x-2 md:space-x-3 pointer-events-auto">
+            {SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrent(idx)}
+                className={`h-1 transition-all duration-500 rounded-full ${
+                  current === idx ? 'w-8 md:w-12 bg-white' : 'w-4 md:w-6 bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

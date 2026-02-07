@@ -20,8 +20,12 @@ const Header: React.FC = () => {
       <header className="w-full h-[80px] md:h-[100px] bg-white flex items-center shadow-sm sticky top-0 z-[100]">
         <div className="custom-container px-6 flex justify-between items-center w-full">
           {/* Logo */}
-          <div className="text-[24px] md:text-[28px] font-[700] text-black tracking-tight cursor-pointer">
-            LOGO
+          <div className="cursor-pointer">
+            <img 
+              src="https://raw.githubusercontent.com/gbzqr41/resp1/refs/heads/main/logo.png" 
+              alt="Logo" 
+              className="h-[35px] md:h-[45px] w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Menu */}
@@ -78,6 +82,18 @@ const Header: React.FC = () => {
             >
               <ShoppingBag size={20} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-black rounded-full border border-white"></span>
+            </button>
+
+            {/* Custom Menu Trigger */}
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="hidden sm:flex items-center cursor-pointer"
+            >
+              <span className="text-[11px] font-[700] tracking-widest mr-[5px]">MENÜ</span>
+              <div className="flex flex-col gap-[5px] items-end">
+                <div className="w-[30px] h-[2px] bg-black"></div>
+                <div className="w-[20px] h-[2px] bg-black"></div>
+              </div>
             </button>
 
             {/* Quote Button */}
